@@ -38,7 +38,7 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-   throw new Error('Not implemented');
+   return len.length;
 }
 
 
@@ -469,7 +469,13 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-   throw new Error('Not implemented');
+   let arr2 = [];
+   arr.forEach(item => {
+    if (!arr2.includes(item)){
+       arr2.push(item);
+   }
+ });
+ return arr2;
 }
 
 /**
