@@ -82,7 +82,7 @@ function getPowerFunction(exponent) {
  *   getPolynom()      => null
  */
 function getPolynom(a,b,c) {
-    return y = `a*2^2`
+    throw new Error('Not implemented');
 }
 
 
@@ -188,6 +188,7 @@ function partialUsingArguments(fn) {
  *   getId10() => 11
  */
 function getIdGeneratorFunction(startFrom) {
+    let 
     throw new Error('Not implemented');
 }
 

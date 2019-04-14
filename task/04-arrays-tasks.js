@@ -339,10 +339,15 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-   let newArr = [];
+   let newArr = arr.filter((i) => {
+      let num = parseInt(i,10)
+      return !isNaN(num) && Number.isInteger(i) && i>0
+   });
+   return newArr.length;
+   /*let newArr = [];
    newArr = arr.filter((i) => arr[i] > 0);
    let result = newArr.length;
-   return result;
+   return result;*/
    //   return arr.filter((i) => i>0).length;
  //  return arr.reduce((prev, cur) => prev + (cur > 0), 0);
    // throw new Error('Not implemented');
