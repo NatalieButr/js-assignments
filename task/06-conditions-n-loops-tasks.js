@@ -239,7 +239,7 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-    throw new Error('Not implemented');
+    return str.split('').reverse().join('');
 }
 
 
@@ -283,7 +283,12 @@ function reverseInteger(num) {
  *   4916123456789012 => false
  */
 function isCreditCardNumber(ccn) {
-    throw new Error('Not implemented');
+    var arr = ccn.toString().split('').reverse();  
+     arr = arr.map(function(x,i){ 
+     if (i%2 !== 0)   return (2*x > 9) ? 2*x - 9 : 2*x; 
+     return x; 
+ }); 
+ return arr.reduce((a, b)=> Number(a) + Number(b))%10 === 0; 
 }
 
 
@@ -302,7 +307,15 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
-    throw new Error('Not implemented');
+    let sum = 0;
+    do {
+        sum = 0;
+        for (num; num > 0; num = Math.floor(num/10))
+            sum += num % 10;
+            num = sum;      
+    } while(sum > 9)
+    return sum;    
+  //  throw new Error('Not implemented');
 }
 
 
@@ -328,7 +341,16 @@ function getDigitalRoot(num) {
  *   '{[(<{[]}>)]}' = true 
  */
 function isBracketsBalanced(str) {
-    throw new Error('Not implemented');
+    const arr = [];
+    const opens = ['(','[','{','<'];
+    const closes = [')', ']', '}', '>'];
+    for (var i of str) {
+        if (opens.indexOf(i) > -1) arr.push(i);
+        else if (closes.indexOf(i) === opens.indexOf(arr[arr.length - 1]))
+            arr.pop();
+        else arr.push(i);    
+    }
+    return !arr.length;
 }
 
 
@@ -388,7 +410,7 @@ function timespanToHumanString(startDate, endDate) {
  *    365, 10 => '365'
  */
 function toNaryString(num, n) {
-    throw new Error('Not implemented');
+    return num.toString(n);
 }
 
 
