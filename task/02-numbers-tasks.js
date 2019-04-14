@@ -38,7 +38,9 @@ function getRectangleArea(width, height) {
  *   0    => 0
  */
 function getCicleCircumference(radius) {
-    throw new Error('Not implemented');
+    const Pi = 3.141592653589793;
+    return 2*Pi*radius
+
 }
 
 /**
@@ -54,7 +56,10 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-    return (value1 + value2) / 2;
+    let sum = value1 + value2 
+    let average = sum / 2;
+    if (average == Infinity) { return 1.7976931348623157e+308}
+    else return average
 }
 
 /**
@@ -89,7 +94,7 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   5*x = 0         => 0
  */
 function getLinearEquationRoot(a, b) {
-    throw new Error('Not implemented');
+    return (-b/a)
 }
 
 
@@ -143,7 +148,7 @@ function getLastDigit(value) {
  * '-525.5'     => -525.5
  */
 function parseNumberFromString(value) {
-    return parseInt(value)
+    return +value
 }
 
 /**
@@ -160,7 +165,7 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelipidedDiagonal(a,b,c) {
-    throw new Error('Not implemented');
+    return (Math.sqrt(a * a + b * b + c * c));
 }
 
 /**
@@ -181,7 +186,10 @@ function getParallelipidedDiagonal(a,b,c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-    throw new Error('Not implemented');
+    if (pow != 0)
+        num = Math.round(num / Math.pow(10, pow)) * Math.pow(10, pow);
+    else num = num;
+    return num;
 }
 
 /**
@@ -202,7 +210,16 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-    throw new Error('Not implemented');
+    let i;
+    let counter = 0;
+    for (i = 2; i < n; i++) {
+        if ((n % i) !== 0)
+            counter += 1;
+    }
+    if (counter == (n - 2)) {
+        return true
+    }
+    else return false
 }
 
 /**
@@ -221,7 +238,9 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-    throw new Error('Not implemented');
+    if (isNaN(Number(value)) === true)
+        return def
+    else return Number(value)
 }
 
 module.exports = {

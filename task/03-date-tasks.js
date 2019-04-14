@@ -12,7 +12,8 @@
 /**
  * Parses a rfc2822 string date representation into date value
  * For rfc2822 date specification refer to : http://tools.ietf.org/html/rfc2822#page-14
- *
+ *f
+
  * @param {string} value
  * @return {date}
  *
@@ -22,7 +23,7 @@
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
 function parseDataFromRfc2822(value) {
-   throw new Error('Not implemented');
+   return Date.parse(value)
 }
 
 /**
@@ -37,7 +38,7 @@ function parseDataFromRfc2822(value) {
  *    '2016-01-19T08:07:37Z' => Date()
  */
 function parseDataFromIso8601(value) {
-   throw new Error('Not implemented');
+   return Date.parse(value)
 }
 
 
@@ -56,7 +57,8 @@ function parseDataFromIso8601(value) {
  *    Date(2015,1,1)    => false
  */
 function isLeapYear(date) {
-   throw new Error('Not implemented');
+   let year = date.getFullYear();
+   return (year % 4 == 0 && year % 100 !== 0) || (year % 4 == 0 && year % 100 == 0 && year % 400 == 0)
 }
 
 
@@ -76,7 +78,30 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 function timeSpanToString(startDate, endDate) {
-   throw new Error('Not implemented');
+   let hour = (endDate.getHours() - startDate.getHours()).toString();
+   let minute = (endDate.getMinutes() - startDate.getMinutes()).toString();
+   let sec = (endDate.getSeconds() - startDate.getSeconds()).toString();
+   let milSec = (endDate.getMilliseconds() - startDate.getMilliseconds()).toString();
+   if (Number(hour) < 10
+      && Number(hour) >= 0) {
+      hour = '0' + hour;
+   }
+   if (Number(minute) < 10
+      && Number(minute) >= 0) {
+      minute = '0' + minute;
+   }
+   if (Number(sec) < 10
+      && Number(sec) >= 0) {
+      sec = '0' + sec;
+   }
+   if (Number(milSec) < 10
+      && Number(milSec) >= 0) {
+      milSec = '00' + milSec;
+   } else if (Number(milSec) < 100
+      && Number(milSec) >= 10) {
+      milSec = '0' + milSec;
+   }
+   return hour + ':' + minute + ':' + sec + '.' + milSec;     
 }
 
 
