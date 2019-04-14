@@ -30,7 +30,18 @@
  *
  */
 function getFizzBuzz(num) {
-    throw new Error('Not implemented');
+    let res;
+    if (num % 3 == 0
+        && num % 5 != 0) {
+        res = 'Fizz'
+    } else if (num % 5 == 0
+        && num % 3 != 0) {
+        res = 'Buzz'
+    } else if (num % 3 == 0
+        && num % 5 == 0) {
+        res = 'FizzBuzz'
+    } else res = num;
+    return res;    
 }
 
 
@@ -46,7 +57,12 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-    throw new Error('Not implemented');
+    let factorial = 1;
+    for (let i = 0; i < n - 1; i++) {
+        factorial *= n - i;
+    }
+    if (n == 1) factorial = 1;
+    return factorial;
 }
 
 
@@ -63,10 +79,11 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-    let sum = n1
-    return function() {
-        return sum += n2;
+    let sum = 0;
+    for (var i = n1; i <= n2; i++) {
+        sum += i;
     }
+    return sum;
 }
 
 
@@ -85,7 +102,7 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a,b,c) {
-    throw new Error('Not implemented');
+    return a > 0 && b > 0 && c > 0 && (a < b + c) && (b < c + a) && (c < a + b);
 }
 
 
@@ -169,7 +186,11 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-    throw new Error('Not implemented');
+    for (var i = 0; i < str.length; i++) {
+        if (str.indexOf(str[i]) == i && str.lastIndexOf(str[i]) == i)
+            return str[i];
+    }
+    return null;
 }
 
 

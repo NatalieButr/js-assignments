@@ -405,7 +405,8 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
-   throw new Error('Not implemented');
+   var count = arr.reduce(function (count, x) { return x === item ? count+1 : count}, 0)
+   return count;  
 }
 
 /**
@@ -508,13 +509,9 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-   let arr2 = [];
-   arr.forEach(item => {
-    if (!arr2.includes(item)){
-       arr2.push(item);
-   }
- });
- return arr2;
+   return arr.filter(function (el, i, arr2) {
+      return arr2.indexOf(el) === i
+   })
 }
 
 /**
