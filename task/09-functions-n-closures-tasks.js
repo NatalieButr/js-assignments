@@ -150,7 +150,11 @@ function logger(func, logFunc) {
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
 function partialUsingArguments(fn) {
-    throw new Error('Not implemented');
+     let arr = Array.prototype.slice.call(arguments,1);
+     let result = function(){
+        return fn.apply(null, arr.concat([].slice.call(arguments)));
+     }
+     return result;
 }
 
 

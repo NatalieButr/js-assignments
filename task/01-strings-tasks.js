@@ -236,7 +236,13 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-    throw new Error('Not implemented');
+     let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+     let rot13 = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+ 
+  return str.split('').map(char => {
+    let index = alphabet.indexOf(char);
+    return index === -1 ? char : rot13[index];
+  }).join('');
 }
 
 /**
