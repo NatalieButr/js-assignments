@@ -47,24 +47,7 @@ function getComposition(f,g) {
  *
  */
 function getPowerFunction(exponent) {
-    console.log(exponent)
-        return Math.pow(n, exponent)
-    /*}
-    function power05(n) {
-        return Math.pow(n, 0.5)
-    }
-    switch(exponent) {
-        case 2:
-            return power2(n);
-         break;
-        case 0.5:
-            return power05(n);
-            break;
-        default:
-        break;
-    }
-*/
-
+    return (value) => Math.pow(value,exponent)
 }
 
 
@@ -188,7 +171,6 @@ function partialUsingArguments(fn) {
  *   getId10() => 11
  */
 function getIdGeneratorFunction(startFrom) {
-    let 
     throw new Error('Not implemented');
 }
 
