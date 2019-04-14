@@ -47,9 +47,9 @@ function getComposition(f,g) {
  *
  */
 function getPowerFunction(exponent) {
-    function power2(n) {
-        return Math.pow(n, 2)
-    }
+    console.log(exponent)
+        return Math.pow(n, exponent)
+    /*}
     function power05(n) {
         return Math.pow(n, 0.5)
     }
@@ -63,7 +63,7 @@ function getPowerFunction(exponent) {
         default:
         break;
     }
-
+*/
 
 }
 
@@ -81,8 +81,8 @@ function getPowerFunction(exponent) {
  *   getPolynom(8)     => y = 8
  *   getPolynom()      => null
  */
-function getPolynom() {
-    throw new Error('Not implemented');
+function getPolynom(a,b,c) {
+    return y = `a*2^2`
 }
 
 

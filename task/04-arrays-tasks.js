@@ -176,8 +176,8 @@ function insertItem(arr, item, index) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'a', 'b', 'c' ]
  */
 function getHead(arr, n) {
-   let newArr = arr.slice(n, arr.length);
-   return newArr;
+   arr.splice(n,arr.length);
+   return arr;
 }
 
 
@@ -297,7 +297,11 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-   throw new Error('Not implemented');
+ let newArr = []; 
+ arr.map(function(el, i) { 
+     newArr = newArr.concat(Array(i + 1).fill(el)); 
+ }); 
+ return newArr; 
 }
 
 
@@ -335,9 +339,14 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-   let newArr = []
-   newArr = arr.filter((i) => i > 0);
-   console.log(newArr)
+   let newArr = [];
+   newArr = arr.filter((i) => arr[i] > 0);
+   let result = newArr.length;
+   return result;
+   //   return arr.filter((i) => i>0).length;
+ //  return arr.reduce((prev, cur) => prev + (cur > 0), 0);
+   // throw new Error('Not implemented');
+
 }
  
 /** 
@@ -354,7 +363,9 @@ function getPositivesCount(arr) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(arr) {
-   throw new Error('Not implemented');
+const numbers = 'zero one two three four five six seven eight nine';
+return arr.sort(function(a,b) {
+   return numbers.indexOf(a) - numbers.indexOf(b)});
 }
 
 /** 
@@ -387,8 +398,13 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-   throw new Error('Not implemented');
-}
+ let count = 0;
+    arr.filter(elem => {
+        if (!elem)
+            count++;
+    });
+    return count;
+ }
 
 /**
  * Returns a number of all occurences of the specified item in an array  
@@ -477,7 +493,15 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]   
  */
 function getIdentityMatrix(n) {
-   throw new Error('Not implemented');
+   let newArr = new Array(n);
+    newArr.fill(0);
+    return newArr.map((el, i) => {
+        let arr = new Array(n);
+        arr.fill(0);
+        arr[i] = 1;
+        el = arr;
+        return el;
+    });
 }
 
 /**
@@ -494,8 +518,11 @@ function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
-   throw new Error('Not implemented');
-}
+let arr=new Array(Math.abs(end - start + 1));
+   arr.fill(0);
+   return arr.map(function(v,i,a){
+       return v=start + i;
+   })}
 
 /**
  * Returns array containing only unique values from the specified array.
@@ -545,7 +572,8 @@ function distinct(arr) {
  *   }
  */
 function group(array, keySelector, valueSelector) {
-   throw new Error('Not implemented');
+      throw new Error('Not implemented');
+
 }
 
 
